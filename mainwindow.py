@@ -16,7 +16,7 @@ def parse_json(file_path):
 # Function to execute Proxmark3 command
 def execute_command(command):
     try:
-        subprocess.run(command, shell=True, check=True)
+        subprocess.run(f'{CONFIG["command_prefix"]} "{command}"', shell=True, check=True)
     except subprocess.CalledProcessError as e:
         handle_error(f"Error executing command: {e}")
 
